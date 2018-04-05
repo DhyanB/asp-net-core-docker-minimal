@@ -4,6 +4,8 @@ WORKDIR /app
  
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
+
+WORKDIR /app/AspNetCoreDocker
  
 EXPOSE 5000/tcp
 ENV ASPNETCORE_URLS http://*:5000
