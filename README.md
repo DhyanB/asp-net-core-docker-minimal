@@ -4,7 +4,7 @@ Minimal example on how to ship ASP.NET Core applications using Docker.
 
 Steps to recreate this setup:
 
-- Create empty repository `\aspnetcoredocker\`
+- Create empty remote repository `\aspnetcoredocker\`
 - Clone repository to `\aspnetcoredocker\`
 - Add .NET specific .gitignore file to filter out Visual Studio temp files, build results, boilerplate etc.
 - Open Visual Studio
