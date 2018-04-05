@@ -29,4 +29,5 @@ Steps to recreate this setup:
     - Run `docker build -t aspnetcoredocker:0.1 .` to build the Docker image
     - Run `docker images` to view all existing images
     - Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.1` to create and run a container instance of the image
-    - Run `curl 172.17.0.2:49895/api/values` on the host machine to test the dockerized ASP.NET app's API
+    - Run `curl 172.17.0.2:49895/api/values` to test the app using the container's ip
+    - Run `curl localhost:8080/api/values` to test the app using the host address
