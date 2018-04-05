@@ -7,7 +7,6 @@ RUN ["dotnet", "build"]
 
 WORKDIR /app/AspNetCoreDocker
  
-EXPOSE 5000/tcp
-ENV ASPNETCORE_URLS http://*:5000
+EXPOSE 49895/tcp
  
 ENTRYPOINT ["dotnet", "run"]
