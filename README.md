@@ -42,3 +42,7 @@ You can do this on any machine having Docker installed.
 
 - Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.1` to create and run a container
 - Run `curl 172.17.0.2:49895/api/values` (using the container's ip) or `curl 127.0.0.1:8080/api/values` (using one of the host's IP4v addresses) to test the application.
+
+## Run in Azure
+
+- Install Azure CLI (see https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
