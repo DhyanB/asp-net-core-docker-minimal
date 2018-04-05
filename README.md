@@ -50,3 +50,4 @@ You can do this on any machine having Docker installed.
 - Create a container registry associated to that resource group
 - Enable admin login to simplify exploration and testing, but use individual user credentials later on. See also: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication.
 - Use the CLI to login to the registry: `docker login <registryname>.azurecr.io`. When prompted for credentials use the admin user name and password.
+- Tag the existing image with the loginServer of your container registry: `docker tag aspnetcoredocker:0.1 <registryname>.azurecr.io/aspnetcoredocker:0.1`
