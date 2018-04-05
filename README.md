@@ -26,7 +26,7 @@ Steps to recreate this setup:
 - On any (remote) machine having Docker installed
     - Clone repository to `/aspnetcoredocker/`
     - In a shell, navigate to `/aspnetcoredocker/`
-    - Run `docker build -t aspnetcoredocker:0.1 .` to build the Docker image
+    - Run `docker build -t dhyanb/aspnetcoredocker:0.1 .` to build the Docker image (replace `dhyanb` and `0.1` with your Docker username and a current version or other appropriate image tag)
     - Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.1` to create and run a container (i.e. an instance of the image)
     - Run `curl 172.17.0.2:49895/api/values` to test the app using the container's ip
     - Run `curl 127.0.0.1:8080/api/values` to test the app using one of the host's IP4v addresses
