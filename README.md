@@ -2,7 +2,7 @@
 
 Minimal example on how to ship ASP.NET Core applications using Docker.
 
-## Build the application
+## Build the example application
 
 You can do this on any machine having .NET Core and Visual Studio installed.
 
@@ -35,11 +35,12 @@ You can do this on any machine having Docker installed.
 
 - Clone repository to `/aspnetcoredocker/`
 - In a shell, navigate to `/aspnetcoredocker/`
-- Run `docker build -t dhyanb/aspnetcoredocker:0.1 .` to build and tag a Docker image using the current folder as context. Replace `dhyanb` with your Docker username and `0.1` with any appropriate tag.
-- Run `docker push dhyanb/aspnetcoredocker:0.1` to publish the image to a registry.
+- Run `docker build -t dhyanb/aspnetcoredocker:0.1 .` to build and tag a Docker image using the current folder as context. Replace `dhyanb` with your registry username and `0.1` with the current version.
+- Run `docker push dhyanb/aspnetcoredocker:0.1` to publish the image to a registry (Docker Hub in this case).
 
 ## Run anywhere
 
+- Run `docker pull dhyanb/aspnetcoredocker` to fetch the image from the registry
 - Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.1` to create and run a container
 - Run `curl 172.17.0.2:49895/api/values` (using the container's ip) or `curl 127.0.0.1:8080/api/values` (using one of the host's IP4v addresses) to test the application.
 
