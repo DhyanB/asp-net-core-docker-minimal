@@ -18,7 +18,7 @@ Steps to recreate this setup:
     - Run `dotnet restore` and `dotnet build`
     - Navigate to `/aspnetcoredocker/AspNetCoreDocker/`
     - Run `dotnet run`
-    - Open http://localhost:49895/api/values in a browser to verify all is working fine (replace port)
+    - Open http://localhost:49895/api/values in a browser to verify all is working fine
     - Run `Ctrl + C to stop the app`
 - Create the `Dockerfile`
 - Open `/aspnetcoredocker/AspNetCoreDocker/Properties/launchSettings.json`and replace `localhost` by `0.0.0.0` in the `"applicationUrl`, so the container will listen to all IPv4 addresses. If this is set to `localhost`, you cannot access your application from outside the container. In a real world scenario you might want to override the port defined in `launchSettings.json` by providing external configuration to the container, instead of hard coding the port into the Docker image. One way of doing this is to set `ENV ASPNETCORE_URLS http://0.0.0.0:49895` in the Dockerfile.
