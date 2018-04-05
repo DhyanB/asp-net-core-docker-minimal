@@ -45,6 +45,8 @@ You can do this on any machine having Docker installed.
 
 ## Run in Azure
 
+Summary from https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr.
+
 - Install Azure CLI (see https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Create a resource group
 - Create a container registry associated to that resource group
