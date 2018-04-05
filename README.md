@@ -46,3 +46,7 @@ You can do this on any machine having Docker installed.
 ## Run in Azure
 
 - Install Azure CLI (see https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Create a resource group
+- Create a container registry associated to that resource group
+- Enable admin login to simplify exploration and testing (but use individual user credentials later on)
+- Use the CLI to login to the registry: `docker login <registryname>.azurecr.io`, when prompted for credentials use the admin user name and password
