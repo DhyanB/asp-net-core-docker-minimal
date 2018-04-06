@@ -64,3 +64,13 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
 
 - Create a container instance named `aspnetdocker` from the registry image and set a DNS name label: `az container create -g "docker-test-rg" -n "aspnetdocker" --image "<registryname>.azurecr.io/aspnetcoredocker:0.5" --dns-name-label "aspnetdockerdemo" --ports 80 -l "westus"`
 - Check that container is running: `az container logs -g "docker-test-rg" -n "aspnetdocker"`
+- Output should look like this:
+    ```
+    Using launch settings from /app/AspNetCoreDocker/Properties/launchSettings.json...
+    warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+        No XML encryptor configured. Key {6983a912-724a-46a6-88e6-66733f2caa2f} may be persisted to storage in unencrypted form.
+    Hosting environment: Development
+    Content root path: /app/AspNetCoreDocker
+    Now listening on: http://0.0.0.0:49895
+    Application started. Press Ctrl+C to shut down.
+    ```
