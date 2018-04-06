@@ -35,7 +35,7 @@ You can do this on any machine having .NET Core and Visual Studio installed.
 
 ## Build the Docker image
 
-You can do this on any machine having Docker installed.
+You can do this on any machine having Docker installed, .NET is not required.
 
 - Clone repository to `/aspnetcoredocker/`
 - In a shell, navigate to `/aspnetcoredocker/`
@@ -43,6 +43,8 @@ You can do this on any machine having Docker installed.
 - Run `docker push dhyanb/aspnetcoredocker:0.5` to publish the image to a registry (Docker Hub in this case).
 
 ## Run anywhere
+
+You can do this on any machine having Docker installed, .NET is not required.
 
 - Run `docker pull dhyanb/aspnetcoredocker` to fetch the image from the registry
 - Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.5` to create and run a container
