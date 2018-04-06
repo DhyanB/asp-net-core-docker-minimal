@@ -75,3 +75,7 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
     Application started. Press Ctrl+C to shut down.
     ```
 - Use `az container show -g "docker-test-rg" -n "aspnetdocker"` to show the container's properties and its FQDN. In my case the FQDN was `aspnetdockerdemo.westus.azurecontainer.io`.
+- Use `az container exec -g "docker-test-rg" -n "aspnetdocker" --exec-command "/bin/bash"` do open a shell in the container
+- Use `ip a` to find out the internal IPv4 address, e.g. `10.244.83.2`
+- Test the application using `curl 10.244.83.2:49895/api/values`
+- [OPEN-ISSUE] Find out how to access the container and its application from the outside
