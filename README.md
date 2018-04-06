@@ -42,6 +42,7 @@ You can do this on any machine having Docker installed.
 
 - Run `docker pull dhyanb/aspnetcoredocker` to fetch the image from the registry
 - Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.5` to create and run a container
+- Shell into the container: `docker exec -i -t <container-nickname> /bin/bash`
 - Run `curl 172.17.0.2:49895/api/values` (using the container's ip) or `curl 127.0.0.1:8080/api/values` (using one of the host's IP4v addresses) to test the application.
 
 ## Run in Azure
