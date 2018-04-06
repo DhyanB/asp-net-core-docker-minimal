@@ -68,7 +68,7 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
     ```
     Using launch settings from /app/AspNetCoreDocker/Properties/launchSettings.json...
     warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
-        No XML encryptor configured. Key {6983a912-724a-46a6-88e6-66733f2caa2f} may be persisted to storage in unencrypted form.
+        No XML encryptor configured. Key {88888888-4444-4444-4444-121212121212} may be persisted to storage in unencrypted form.
     Hosting environment: Development
     Content root path: /app/AspNetCoreDocker
     Now listening on: http://0.0.0.0:49895
