@@ -35,13 +35,13 @@ You can do this on any machine having Docker installed.
 
 - Clone repository to `/aspnetcoredocker/`
 - In a shell, navigate to `/aspnetcoredocker/`
-- Run `docker build -t dhyanb/aspnetcoredocker:0.1 .` to build and tag a Docker image using the current folder as context. Replace `dhyanb` with your registry username and `0.1` with the current version.
-- Run `docker push dhyanb/aspnetcoredocker:0.1` to publish the image to a registry (Docker Hub in this case).
+- Run `docker build -t dhyanb/aspnetcoredocker:0.5 .` to build and tag a Docker image using the current folder as context. Replace `dhyanb` with your registry username and `0.5` with the current version.
+- Run `docker push dhyanb/aspnetcoredocker:0.5` to publish the image to a registry (Docker Hub in this case).
 
 ## Run anywhere
 
 - Run `docker pull dhyanb/aspnetcoredocker` to fetch the image from the registry
-- Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.1` to create and run a container
+- Run `docker run -d -p 8080:49895 -t aspnetcoredocker:0.5` to create and run a container
 - Run `curl 172.17.0.2:49895/api/values` (using the container's ip) or `curl 127.0.0.1:8080/api/values` (using one of the host's IP4v addresses) to test the application.
 
 ## Run in Azure
@@ -53,5 +53,6 @@ Summary from https://docs.microsoft.com/en-us/azure/container-instances/containe
 - Create a container registry associated to that resource group
 - Enable admin login to simplify exploration and testing, but use individual user credentials later on. See also: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication.
 - Use the CLI to login to the registry: `docker login <registryname>.azurecr.io`. When prompted for credentials use the admin user name and password.
-- Tag the existing image with the loginServer of your container registry: `docker tag aspnetcoredocker:0.1 <registryname>.azurecr.io/aspnetcoredocker:0.1`
-- Push the image to the registry: `docker push <registryname>.azurecr.io/aspnetcoredocker:0.1`
+- Tag the existing image with the loginServer of your container registry: `docker tag aspnetcoredocker:0.5 <registryname>.azurecr.io/aspnetcoredocker:0.5`
+- Push the image to the registry: `docker push <registryname>.azurecr.io/aspnetcoredocker:0.5`
+- Create a container instance named `aspnetdocker` from the registry image and set a DNS name label: `az container create -g "docker-test-rg" -n "aspnetdocker" --image "<registryname>.azurecr.io/aspnetcoredocker:0.5" --dns-name-label "aspnetdockerdemo" --ports 80 -l "westus"`
