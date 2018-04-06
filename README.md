@@ -25,7 +25,7 @@ You can do this on any machine having .NET Core and Visual Studio installed.
     
 ## Dockerize the application
 
-- Create the `Dockerfile` in `/aspnetcoredocker/`
+- Create the `Dockerfile` in `/aspnetcoredocker/`, use Microsofts `aspnetcore` Docker image from https://hub.docker.com/r/microsoft/aspnetcore/
 - Open `/aspnetcoredocker/AspNetCoreDocker/Properties/launchSettings.json`and replace `localhost` by `0.0.0.0` in the `"applicationUrl`, so the container will listen to all IPv4 addresses. If this is set to `localhost`, you cannot access your application from outside the container. In a real world scenario you might want to override the port defined in `launchSettings.json` by means of external configuration, instead of having it in the application itself. Ways of doing this include setting `ENV ASPNETCORE_URLS http://0.0.0.0:49895` in the Dockerfile or passing parameters to `docker run`.
 - Run `git add .`, `git commit` and `git push origin master`
 
