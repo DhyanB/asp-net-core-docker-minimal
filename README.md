@@ -48,6 +48,8 @@ You can do this on any machine having Docker installed.
 
 Summary from https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr.
 
+### Push image to registry
+
 - Install Azure CLI (see https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Create a resource group
 - Create a container registry associated to that resource group
@@ -55,4 +57,10 @@ Summary from https://docs.microsoft.com/en-us/azure/container-instances/containe
 - Use the CLI to login to the registry: `docker login <registryname>.azurecr.io`. When prompted for credentials use the admin user name and password.
 - Tag the existing image with the loginServer of your container registry: `docker tag aspnetcoredocker:0.5 <registryname>.azurecr.io/aspnetcoredocker:0.5`
 - Push the image to the registry: `docker push <registryname>.azurecr.io/aspnetcoredocker:0.5`
+
+### Create a container instance
+
+See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-latest#az-container-create
+
 - Create a container instance named `aspnetdocker` from the registry image and set a DNS name label: `az container create -g "docker-test-rg" -n "aspnetdocker" --image "<registryname>.azurecr.io/aspnetcoredocker:0.5" --dns-name-label "aspnetdockerdemo" --ports 80 -l "westus"`
+- Check that container is running: `az container logs -g "docker-test-rg" -n "aspnetdocker"`
