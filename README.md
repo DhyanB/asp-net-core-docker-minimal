@@ -69,7 +69,7 @@ Summary from https://docs.microsoft.com/en-us/azure/container-instances/containe
 
 See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-latest#az-container-create
 
-- Create a container instance named `aspnetdocker` from the registry image and set a DNS name label: `az container create -g "docker-test-rg" -n "aspnetdocker" --image "<registryname>.azurecr.io/aspnetcoredocker:0.5" --dns-name-label "aspnetdockerdemo" --ports 80 -l "westus"`
+- Create a container instance named `aspnetdocker` from the registry image and set a DNS name label: `az container create -g "docker-test-rg" -n "aspnetdocker" --image "<registry-name>.azurecr.io/aspnetcoredocker:0.5" --dns-name-label "aspnetdockerdemo" --ip-address public --ports 80 -l "westus"`
 - Check that container is running: `az container logs -g "docker-test-rg" -n "aspnetdocker"`
 - Output should look like this:
     ```
