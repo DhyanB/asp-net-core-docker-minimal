@@ -87,8 +87,11 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
 - Use `az container show -g "docker-test-rg" -n "aspnetdocker"` to show the container's properties and its FQDN. In my case the FQDN was `aspnetdockerdemo.westus.azurecontainer.io`.
 - Use `az container exec -g "docker-test-rg" -n "aspnetdocker" --exec-command "/bin/bash"` do open a shell in the container
 - Use `ip a` to find out the internal IPv4 address, e.g. `10.244.83.2`
-- Test the application using `curl 10.244.83.2:49895/api/values`
-- [OPEN-ISSUE] Find out how to access the container and its application from the outside
+- Test the application from inside the container using `curl 10.244.83.2:49895/api/values`
+- [OPEN-ISSUE] Find out how to access the container and its application from the outside. Ideally the example API would be accessable using `http://aspnetdockerdemo.westus.azurecontainer.io/api/values`. Ideas:
+    - Maybe some network configuration on Azure is required to open IPs and/or ports externally?
+    - Maybe Azure only allows HTTPS connections from outside, so the container should be created using `--ports 443 80`
+    - Maybe some other Azure service type has to be used to make apps externally available, e.g. have a look at `az webapp create` and `az webapp config container set`. See also: https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image.
 
 ### Delete the Azure container instance
 
