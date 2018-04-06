@@ -51,7 +51,7 @@ Summary from https://docs.microsoft.com/en-us/azure/container-instances/containe
 ### Push image to registry
 
 - Install Azure CLI (see https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-- Create a resource group
+- Create a resource group called `docker-test-rg`
 - Create a container registry associated to that resource group
 - Enable admin login to simplify exploration and testing, but use individual user credentials later on. See also: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication.
 - Use the CLI to login to the registry: `docker login <registryname>.azurecr.io`. When prompted for credentials use the admin user name and password.
