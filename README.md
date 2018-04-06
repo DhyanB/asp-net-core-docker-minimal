@@ -81,8 +81,18 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
     Now listening on: http://0.0.0.0:49895
     Application started. Press Ctrl+C to shut down.
     ```
+    
+### Play with the container
+    
 - Use `az container show -g "docker-test-rg" -n "aspnetdocker"` to show the container's properties and its FQDN. In my case the FQDN was `aspnetdockerdemo.westus.azurecontainer.io`.
 - Use `az container exec -g "docker-test-rg" -n "aspnetdocker" --exec-command "/bin/bash"` do open a shell in the container
 - Use `ip a` to find out the internal IPv4 address, e.g. `10.244.83.2`
 - Test the application using `curl 10.244.83.2:49895/api/values`
 - [OPEN-ISSUE] Find out how to access the container and its application from the outside
+
+### Delete the container
+
+- When you are done with the container, you can remove it using the az container delete command:
+`az container delete -g "docker-test-rg" -n "aspnetdocker"`
+- To verify that the container has been deleted, execute the az container list command:
+`az container list -g "docker-test-rg" --output table`
