@@ -6,7 +6,7 @@ Minimal example on how to ship ASP.NET Core applications using Docker.
 
 https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined
 
-## Build the example application
+## Build the example .NET application
 
 You can do this on any machine having .NET Core and Visual Studio installed.
 
@@ -42,7 +42,7 @@ You can do this on any machine having Docker installed, .NET is not required.
 - Run `docker build -t dhyanb/aspnetcoredocker:0.5 .` to build and tag a Docker image using the current folder as context. Replace `dhyanb` with your registry username and `0.5` with the current version.
 - Run `docker push dhyanb/aspnetcoredocker:0.5` to publish the image to a registry (Docker Hub in this case).
 
-## Run anywhere
+## Run containers anywhere
 
 You can do this on any machine having Docker installed, .NET is not required.
 
@@ -51,11 +51,11 @@ You can do this on any machine having Docker installed, .NET is not required.
 - Shell into the container: `docker exec -i -t <container-nickname> /bin/bash`
 - Run `curl 172.17.0.2:49895/api/values` (using the container's ip) or `curl 127.0.0.1:8080/api/values` (using one of the host's IP4v addresses) to test the application.
 
-## Run in Azure
+## Run containers in Azure
 
 Summary from https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr.
 
-### Push image to registry
+### Push image to Azure registry
 
 - Install Azure CLI (see https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Create a resource group called `docker-test-rg`
@@ -65,7 +65,7 @@ Summary from https://docs.microsoft.com/en-us/azure/container-instances/containe
 - Tag the existing image with the loginServer of your container registry: `docker tag aspnetcoredocker:0.5 <registryname>.azurecr.io/aspnetcoredocker:0.5`
 - Push the image to the registry: `docker push <registryname>.azurecr.io/aspnetcoredocker:0.5`
 
-### Create a container instance
+### Create an Azure container instance
 
 See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-latest#az-container-create
 
@@ -82,7 +82,7 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
     Application started. Press Ctrl+C to shut down.
     ```
     
-### Play with the container
+### Play with the Azure container instance
     
 - Use `az container show -g "docker-test-rg" -n "aspnetdocker"` to show the container's properties and its FQDN. In my case the FQDN was `aspnetdockerdemo.westus.azurecontainer.io`.
 - Use `az container exec -g "docker-test-rg" -n "aspnetdocker" --exec-command "/bin/bash"` do open a shell in the container
@@ -90,9 +90,7 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
 - Test the application using `curl 10.244.83.2:49895/api/values`
 - [OPEN-ISSUE] Find out how to access the container and its application from the outside
 
-### Delete the container
+### Delete the Azure container instance
 
-- When you are done with the container, you can remove it using the az container delete command:
-`az container delete -g "docker-test-rg" -n "aspnetdocker"`
-- To verify that the container has been deleted, execute the az container list command:
-`az container list -g "docker-test-rg" --output table`
+- Remove the container: `az container delete -g "docker-test-rg" -n "aspnetdocker"`
+- Verify that the container has been deleted: `az container list -g "docker-test-rg" --output table`
