@@ -74,3 +74,4 @@ See also: https://docs.microsoft.com/en-us/cli/azure/container?view=azure-cli-la
     Now listening on: http://0.0.0.0:49895
     Application started. Press Ctrl+C to shut down.
     ```
+- Use `az container show -g "docker-test-rg" -n "aspnetdocker"` to show the container's properties and its FQDN. In my case the FQDN was `aspnetdockerdemo.westus.azurecontainer.io`.
