@@ -2,6 +2,10 @@
 
 Minimal example on how to ship ASP.NET Core applications using Docker.
 
+## 5 minutes Docker introduction
+
+https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined
+
 ## Build the example application
 
 You can do this on any machine having .NET Core and Visual Studio installed.
